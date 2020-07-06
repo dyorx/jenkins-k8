@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jenkins-web
+  name: jenkins-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jenkins-web
+  template:
+    metadata:
+      labels:
+        app: jenkins-web
+    spec:
+      containers:
+        - image: jenkins/jenkins:alpine
+          name: jenkins-container
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+      volumes:
+        - name: jenkins-home
