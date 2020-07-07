@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: jenkins-web
+    app: jenkins-master
   name: jenkins-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: jenkins-web
+      app: jenkins-master
   template:
     metadata:
       labels:
-        app: jenkins-web
+        app: jenkins-master
     spec:
       containers:
         - image: jenkins/jenkins:alpine
