@@ -24,3 +24,5 @@ spec:
               mountPath: /var/jenkins_home
       volumes:
         - name: jenkins-home
+          hostPath:
+            path: /home/devops/jenkins-home
